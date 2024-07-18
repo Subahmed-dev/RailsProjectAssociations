@@ -1,3 +1,3 @@
 class Supplier < ApplicationRecord
-  belongs_to :inventory
+  has_and_belongs_to_many :inventories
 end

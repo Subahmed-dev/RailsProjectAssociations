@@ -1,0 +1,9 @@
+<h1> Edit Inventory </h1>
+
+<%= form_for @inventory do |f|%>
+  <%= f.label :item_name %> <br>
+  <%= f.text_field :item_name %>
+  <br>
+
+  <%= f.submit %>
+<% end %>

@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_17_160213) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_18_134021) do
   create_table "inventories", force: :cascade do |t|
     t.string "item_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories_suppliers", id: false, force: :cascade do |t|
+    t.bigint "inventory_id"
+    t.bigint "supplier_id"
+    t.index ["inventory_id"], name: "index_inventories_suppliers_on_inventory_id"
+    t.index ["supplier_id"], name: "index_inventories_suppliers_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|

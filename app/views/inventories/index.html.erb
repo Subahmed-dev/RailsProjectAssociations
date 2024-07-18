@@ -1,0 +1,6 @@
+<% @inventories.each do |inventory|%>
+  <h2> <%= inventory.item_name %></h2>
+  <%= link_to 'Read Post', inventory %>
+<% end %>
+<br><br>
+<%= link_to "Add inventory", new_inventory_path %>
