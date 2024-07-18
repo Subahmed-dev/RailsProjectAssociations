@@ -8,12 +8,13 @@ class InventoriesController < ApplicationController
 
   def new
     @inventory = Inventory.new
-    @suppliers = Supplier.all
+    @inventory.suppliers.build  #creates empty supplier object
   end
 
 
-  def create 
+  def create     
     @inventory = Inventory.create(post_params)
+    
     if @inventory.save
       redirect_to @inventory
     else 
@@ -22,11 +23,14 @@ class InventoriesController < ApplicationController
   end
 
   def show
+    @inventory = Inventory.find(params[:id])
+    @supplier = @inventory.suppliers.all
   end
 
   def edit
-    @suppliers = Supplier.all
-    render :new
+    @inventory.suppliers.build if @inventory.suppliers.empty?
+    # @suppliers = Supplier.all
+    # render :new
   end
 
   def update

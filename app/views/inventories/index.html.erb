@@ -1,17 +1,12 @@
 <% @inventories.each do |inventory|%>
   <h2> <%= inventory.item_name %></h2>
-<!--
-  <p>Suppliers</p>
-  <br>
-  <ul>
-    <%inventory.suppliers.each do |supplier| %>
-      <%= supplier.name %>
-      <br>
-      <%end%>
 
-  </ul>  -->
 
   <%= link_to 'Read Post', inventory %>
 <% end %>
 <br><br>
 <%= link_to "Add inventory", new_inventory_path %>
+<br>
+<%= link_to "Add Supplier", new_supplier_path%>
+<br>
+<%= link_to "Show Suppliers", suppliers_path%>

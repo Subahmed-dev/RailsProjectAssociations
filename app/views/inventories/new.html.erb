@@ -1,9 +1,35 @@
 <h1> NEW POST </h1>
-
+<!--
 <%= form_for @inventory do |f|%>
   <%= f.label :item_name %> <br>
   <%= f.text_field :item_name %>
   <br>
+  
+
+  <%= f.fields_for :supplier do |supplier_form| %>
+    <%= supplier_form.label :supplier_name, "Supplier Name" %>
+    <%= supplier_form.text_field :supplier_name %>
+    <br>
+  <%end%>
+
 
   <%= f.submit %>
+
+<%end%>  -->
+
+
+<!-- app/views/inventories/new.html.erb -->
+<h1>New Inventory</h1>
+
+<%= form_with(model: @inventory) do |form| %>
+  <%= form.label :item_name %><br>
+  <%= form.text_field :item_name %><br>
+
+  <h2>Suppliers</h2>
+  <%= form.collection_check_boxes :supplier_ids, Supplier.all, :id, :supplier_name do |cb| %>
+    <%= cb.check_box %>
+    <%= cb.label %><br>
+  <% end %>
+
+  <%= form.submit %>
 <% end %>
