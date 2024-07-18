@@ -1,0 +1,6 @@
+<h1><%= @supplier.supplier_name %> </h1>
+
+
+<%= link_to "Edit Supplier", edit_supplier_path(@supplier) %> <br>
+<%= link_to "Home", root_path %>
+<%= button_to "Delete", supplier_path(@supplier),  method: :delete%>

@@ -28,8 +28,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_18_134021) do
     t.string "supplier_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "inventory_id", null: false
-    t.index ["inventory_id"], name: "index_suppliers_on_inventory_id"
   end
 
   create_table "temporaries", force: :cascade do |t|
@@ -37,5 +35,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_18_134021) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "suppliers", "inventories"
 end

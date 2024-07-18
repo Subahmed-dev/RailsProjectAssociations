@@ -1,0 +1,8 @@
+<% @suppliers.each do |supplier|%>
+  <h2> <%= supplier.supplier_name %></h2>
+
+
+  <%= link_to 'Read Supplier', supplier %>
+<% end %>
+<br><br>
+<%= link_to "Add supplier", new_supplier_path %>

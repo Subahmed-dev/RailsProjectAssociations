@@ -8,6 +8,7 @@ class InventoriesController < ApplicationController
 
   def new
     @inventory = Inventory.new
+    @suppliers = Supplier.all
   end
 
 
@@ -24,12 +25,15 @@ class InventoriesController < ApplicationController
   end
 
   def edit
+    @suppliers = Supplier.all
+    render :new
   end
 
   def update
     if @inventory.update(post_params)
       redirect_to @inventory
     else
+      @suppliers = Supplier.all
       render 'edit'      
     end
   end
@@ -47,7 +51,7 @@ class InventoriesController < ApplicationController
   end
 
   def post_params
-    params.require(:inventory).permit(:item_name)
+    params.require(:inventory).permit(:item_name, supplier_ids: [])
   end
 
 end

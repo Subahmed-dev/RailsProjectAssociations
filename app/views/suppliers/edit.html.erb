@@ -1,0 +1,9 @@
+<h1> Edit Supplier </h1>
+
+<%= form_for @supplier do |f|%>
+  <%= f.label :supplier_name %> <br>
+  <%= f.text_field :supplier_name %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
