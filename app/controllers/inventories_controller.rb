@@ -13,6 +13,7 @@ class InventoriesController < ApplicationController
 
 
   def create     
+    # byebug
     @inventory = Inventory.create(post_params)
     
     if @inventory.save
@@ -24,7 +25,7 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = Inventory.find(params[:id])
-    @supplier = @inventory.suppliers.all
+    @suppliers = @inventory.suppliers
   end
 
   def edit

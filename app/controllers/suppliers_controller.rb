@@ -30,9 +30,10 @@ class SuppliersController < ApplicationController
   def update
     if @supplier.update(supplier_params)
       redirect_to @supplier
-    else
-      @inventories = Inventory.all
-      render :edit
+    # else
+    #   @inventories = Inventory.all
+    #   render :edit
+    # end
     end
   end
 

@@ -1,8 +1,13 @@
 <h1><%= @inventory.item_name %> </h1>
-<p>The Supplier of this item is: </p> <b>
- <%= @supplier.supplier_name %> 
+<p> The Supplier for this inventory is as below <p> 
+<% @suppliers.each do |supplier|%>
+  <p> <%= supplier.supplier_name %></p>
+<%end%>
 
 
+
+
+<br><br>
 <%= link_to "Edit Inventory", edit_inventory_path(@inventory) %> <br>
 <%= link_to "Home", root_path %>
 <%= button_to "Delete", inventory_path(@inventory),  method: :delete%>
